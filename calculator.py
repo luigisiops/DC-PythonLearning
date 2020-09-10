@@ -25,9 +25,16 @@ def divide(num1, num2):
     print(int(num1)/int(num2))
 
 def calculator():
-    num1 = input("first num: ")
-    num2 = input("second num: ")
-    op = input("put operation: ")
+    check = False
+    while(check == False):
+        try:
+            num1 = int(input("first num: "))
+            num2 = int(input("second num: "))
+            op = input("put operation: ")
+            check = True
+        except:
+            check = False
+            print('needs to be a number')
 
     if (op == "+"):
         add(num1, num2)
