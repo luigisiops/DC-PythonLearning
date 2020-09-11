@@ -6,7 +6,7 @@ names = ["Alex","John","Mary","Steve","John", "Steve","Steve"]
 def duplicates(arr):
     hashmap = {}
     result = []
-    for name in range(0,len(arr)+1):
+    for name in range(0,len(arr)):
         if(arr[name] not in hashmap):
             hashmap[arr[name]] = 1
             result.append(arr[name])
