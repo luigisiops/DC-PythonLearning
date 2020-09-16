@@ -1,0 +1,30 @@
+from datetime import datetime 
+
+  pool_tables = [] 
+
+  class PoolTable:   
+    def __init__(self, table_number): 
+        self.table_number = table_number    
+        self.is_occupied = False    
+        self.start_time = None     
+        self.end_time = None     
+        self.time_played = None   
+
+    def check_out(self):     
+        self.is_occupied = True     
+        self.start_time = datetime.now()   
+
+    def check_in(self):     
+        self.time_played = self.end_time - self.start_time     
+        self.is_occupied = False 
+
+        # create tables 
+         for index in range(1,13):   
+        # initialize a pool table object  
+            pool_table = PoolTable(index)  
+
+        # add pool table to the array   
+            pool_tables.append(pool_table)
+        
+        # ask for user input for table to play on 
+            pool_table = pool_tables[1] pool_table.check_out()
