@@ -26,59 +26,66 @@ class PoolTableManager():
     #need to add start time upon insertion
     def insert(self, key, value):
         table_input = int(input("Pick a table: "))
-        mod_index = index%12
-        if len(self.table[mod_index]) >= 1:
+        if len(self.table[table_input -1]) >= 1:
             print("This table is OCCUPIED TO FULL CAPACITY")
         else:
-            self.table[mod_index].update({key: value})
+            self.table[table_input -1].update({key: value})
 
     def remove(self,key):
-        index = hash(key)
-        mod_index = index%12
-        del self.table[mod_index]
+        for i in range(0, len(self.table)):
+            if key in self.table[i]:
+                del self.table[i][key]
+            else:
+                print("player is not at any table")
 
     #will return what table search is at
     def search(self,key):
-        index = hash(key)
-        mod_index = index%12
-        return mod_index + 1
+        for i in range(0, len(self.table)):
+            if key in self.table[i]:
+                table_num = print(f"player: {key} is currently at table number {i+1}")
+            else:
+                print("player is not at any table")
+        return table_num
 
     def view_all_tables(self):
         return self.table
 
-pool = PoolTableManager()
-pool.insert('Luigi', 'Siopongco')
-pool.insert('','moon')
-pool.insert('Jake', 'Steel')
-
 def pool_table_manager():
     pool = PoolTableManager()
+    while(True):
+        print(f"""
+                        POOL TABLES
+        ==============================================
+                Options: 
+                1) Add Customer to table
+                2) Remove Customer from table
+                3) Search what table Customer is at
+                q) Quit
 
-    print(f"""
-                POOL TABLES
-==============================================
-        Options: 
-        1) Add Customer to table
-        2) Remove Customer from table
-        3) Search what table Customer is at
-        q) Quit
+                    Current Table Vacancies 
+                    -----------------------
+    {pool.view_all_tables()}
+        """)
 
-            Current Table Vacancies 
-            -----------------------
-{pool.view_all_tables()}
-    """)
+        user_choice = input("Choose an option: ")
+        if user_choice == "1":
+            user_firstname = input("Write customer first name to be added to a random table: ")
+            user_lastname = input("Write customer last name to be added to a random table: ")
+            pool.insert(user_firstname, user_lastname)
 
-    user_choice = input("Choose an option: ")
-    if user_choice == "1":
-        user_firstname = input("Write customer first name to be added to a random table: ")
-        user_lastname = input("Write customer last name to be added to a random table: ")
-        pool.insert(user_firstname, user_lastname)
-        table_user_current = pool.search(user_firstname)
-        print(f"You have assigned customer {user_firstname} {user_lastname} to table {table_user_current} ")
-        print(pool.view_all_tables())
+            table_user_current = pool.search(user_firstname)
+            print(f"You have assigned customer {user_firstname} {user_lastname} to table {table_user_current} ")
 
-    if user_choice == "2":
-        print(2)
+        if user_choice == "2":
+            user_firstname = input("Write customer first name to be remove from table: ")
+            pool.remove(user_firstname)
+
+        if user_choice == "3":
+            user_firstname = input("Write customer first name to be searched: ")
+            pool.search(user_firstname)
+
+        if user_choice =="q":
+            break
 
 
 
