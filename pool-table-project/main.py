@@ -31,6 +31,7 @@ class PoolTableManager():
     #need to add start time upon insertion
     def time_change(self, start_time, end_time, total_time):
         start_time = datetime.now()
+
         useable_time = f"{start_time.hour}:{start_time.minute}:{start_time.second}"
         return useable_time
 
@@ -41,8 +42,10 @@ class PoolTableManager():
         return minutes_cost
     
     def send_entry(self, player, table_number, start_time, end_time, total_time, cost):
-        
-        with open(f"test.txt","w") as file_object:
+        today = datetime.now()
+        month, day, year = today.month, today.day, today.year
+
+        with open(f"{month}-{day}-{year}.txt","w") as file_object:
             file_object.write(f"""
             --------------------------------------------------
             table number:{table_number}
@@ -52,8 +55,6 @@ class PoolTableManager():
             total_time: {total_time.hour}:{total_time.minute}:{total_time.second}
             cost: ${cost}
             --------------------------------------------------""")
-            
-
 
     def insert(self, key, value):
         table_input = int(input("Pick a table: "))
