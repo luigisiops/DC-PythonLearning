@@ -115,16 +115,20 @@ def pool_table_manager():
             table_user_current = pool.search(user_firstname)
             print(f"You have assigned customer {user_firstname} {user_lastname} to table {table_user_current} ")
 
-        if user_choice == "2":
+        elif user_choice == "2":
             user_firstname = input("Write customer first name to be remove from table: ")
             pool.remove(user_firstname)
 
-        if user_choice == "3":
+        elif user_choice == "3":
             user_firstname = input("Write customer first name to be searched: ")
             pool.search(user_firstname)
 
-        if user_choice =="q":
+        elif user_choice =="q":
             break
+
+        else: 
+            print("Not a choice")
+
 
 pool_table_manager()
 
