@@ -1,14 +1,3 @@
-#There are 12 tables
-
-#Check if occupied or not occupied
-
-# if occuppied, show start time of table and number
-# of minutes played (if >60 min show in hours)
-
-#only give out tables that are not occupied
-
-##This project makes me think of dictionaires and hastables so lets 
-#use that
 from datetime import datetime
 
 """class PlayerTable():
@@ -44,15 +33,16 @@ class PoolTableManager():
     def send_entry(self, player, table_number, start_time, end_time, total_time, cost):
         today = datetime.now()
         month, day, year = today.month, today.day, today.year
+        seconds, minutes, hours = [total_time.seconds, (total_time.seconds//60)%60, total_time.seconds//3600]
 
-        with open(f"{month}-{day}-{year}.txt","w") as file_object:
+        with open(f"{month}-{day}-{year}.txt","a") as file_object:
             file_object.write(f"""
             --------------------------------------------------
             table number:{table_number}
             player: {player}
             start_time: {start_time.hour}:{start_time.minute}:{start_time.second} 
             end_time: {end_time.hour}:{end_time.minute}:{end_time.second}
-            total_time: {total_time.hour}:{total_time.minute}:{total_time.second}
+            total_time: {hours}:{minutes}:{seconds}
             cost: ${cost}
             --------------------------------------------------""")
 
@@ -135,8 +125,6 @@ def pool_table_manager():
 
         if user_choice =="q":
             break
-
-
 
 pool_table_manager()
 
