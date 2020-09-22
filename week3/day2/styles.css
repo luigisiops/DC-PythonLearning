@@ -1,0 +1,111 @@
+html, body{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    margin: 0;
+}
+.score{
+    color: grey;
+    font-size: 20px;
+    text-align: right;
+    padding-right: 150px;
+    padding-bottom: 30px;
+
+}
+.redbrick{
+    color: red;
+}
+.borders{
+    border: 25px solid grey;
+    border-bottom: 0px;
+    height: 100%;
+    width: 100%;
+}
+.blackbricks{
+    width: 100%;
+    padding: 20px;
+    padding-right: 0px;
+    padding-left: 0px;
+    background-color: black;
+}
+table{
+    margin: 0px;
+    width: 100%;
+    border: 2px solid black;
+    border-bottom: 0px;
+    border-top: 0px
+}
+.redbrick td{
+    padding:10px;
+    background:red
+}
+.redbrick th{
+    height: 30px;
+    background:red
+}
+.yellowbrick td{
+    padding:10px;
+    background:yellow
+}
+.yellowbrick th{
+    height: 30px;
+    background:yellow
+}
+.greenbrick td{
+    padding:10px;
+    background:green
+}
+.greenbrick th{
+    height: 30px;
+    background:green
+}
+.bluebrick td{
+    padding:10px;
+    background:blue
+}
+.bluebrick th{
+    height: 30px;
+    background:blue
+}
+.block {
+    background: black
+}
+.rectangle{
+    height: 30px;
+    width: 100px;
+    margin-left: 48%;
+    background-color: grey;
+}
+.lower {
+    padding-left: 100px;
+    padding-top: 25px;
+}
+.dot{
+    height:10px;
+    width:10px;
+    background-color: white;
+}
+.yellowbrick .empty{
+    background-color: black;
+    position: relative;
+}
+.yellowbrick .empty-right{
+    background-color: black;
+    position: relative;
+}
+.empty .dot{
+    margin: 0px;
+    top:0px;
+    position: absolute;
+
+}
+.empty-right {
+    background-color: black;
+    position: relative;
+}
+.empty-right .dot{
+    margin: 0px;
+    top:0px;
+    left:88%;
+    position: absolute;
+}
