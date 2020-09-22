@@ -1,0 +1,8 @@
+body{
+    background: yellow;
+    font-style: italic;
+    font-size: 18px;
+}
+li:nth-child(3) {
+    background: green
+}
