@@ -1,0 +1,82 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    margin:0px;
+    padding: 0px;
+}
+
+.navbar {
+    width: 100%;
+}
+
+.jumbotron{
+    margin: 30px;
+}
+
+.info h3, p{
+    padding-left: 62px;
+    padding-right: 62px;
+}
+
+.likes-comments{
+    display: flex;
+    justify-content: left;
+    align-content: center;
+    margin-left: 62px;
+    margin-right: 62px;
+    margin-bottom: 30px;
+    background-color: orange;
+}
+
+.likes-comments p{
+    margin: 5px;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 0px;
+    color: white;
+}
+
+.boxes{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: 62px;
+    margin-right: 62px;
+    flex-wrap: wrap;
+}
+
+.boxes .card{
+    margin: 30px;
+    flex: 1 0 calc(33.333% - 62px);
+    max-width: calc(33.333% - 62px);
+}
+
+.card .card-title{
+    text-align: center;
+}
+
+.card-body{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+@media (min-width: 576px) {
+.container, .container-sm {
+    max-width: 100%;
+}
+}
+
+@media (max-width: 481px) {
+.jumbotron{
+    margin:0px;
+}
+}
+
+@media (min-width: 1280px) {
+    .boxes .card{
+        margin: 30px;
+        flex: 1 0 calc(26% - 62px);
+        max-width: calc(26% - 62px);
+    }
+    }
